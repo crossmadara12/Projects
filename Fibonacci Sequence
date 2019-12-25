@@ -1,0 +1,50 @@
+#Fibonacci Sequence
+
+def fibonacci_seq():
+    
+    number = 0
+    
+    while True:
+        
+        number = int(input('\nEnter a number: '))
+        
+        if number < 0:
+            print('Please, enter a positive integer')
+            continue
+        else:
+            print(f'\nresult = {list(gen_fibon(number))}')
+            break
+
+def gen_fibon(number):
+    
+    a = 1
+    b = 1
+    
+    for x in range(number):
+        yield a
+        a, b = b, a + b
+        
+def switch():
+    
+    switch = input('Would you like to try it out? y/n:').lower()
+    
+    if switch[0] == 'y':
+        return True
+    else:
+        return False
+    
+def try_again():
+    
+    return input('Would you like to try again?:').lower().startswith('y')
+
+while True:
+    
+    print('\n*Fibonnacci Sequence*\n')
+    
+    while switch():
+        
+        fibonacci_seq()
+        break
+    
+    if not try_again():
+        break
